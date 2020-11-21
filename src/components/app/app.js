@@ -9,9 +9,9 @@ import PostAddForm from "../post-add-form";
 
 function App() {
 	const postsList = [
-		{label: "Хочешь стать программистом?", important: true},
-		{label: "Да ебись ты в рот!", important: false},
-		{label: "Пойти нахуй", important: false},
+		{label: "Сегодня я поел", id: "qwfvc"},
+		{label: "Вчера я попил", id: "asdf"},
+		{label: "Завтра я покекаю", id: "ghjd"},
 	];
 	return ( 
 		<div className="app">

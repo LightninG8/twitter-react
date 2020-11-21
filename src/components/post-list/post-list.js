@@ -16,9 +16,11 @@ class PostList extends React.Component {
         const {posts} = this.props;
 
         const postsList = posts.map(elem => {
+            const {id, ...elemProps} = elem;
+            
             return (
-                <li className="list-group-item" key="">
-                    <PostListItem label={elem.label} important={elem.important}/>
+                <li className="list-group-item" key={id}>
+                    <PostListItem {...elemProps}/>
                 </li>     
             );
         });
