@@ -1,14 +1,35 @@
-import React from "react";
+import React, {Component} from "react";
+import PropTypes from "prop-types";
 
 import "./post-status-filter.css";
 
-function PostStatusFilter () {
-    return (
-        <div className="btn-group">
-            <button type="button" className="btn btn-info">Все</button>
-            <button type="button" className="btn btn-outline-secondary">Понравилось</button>
-        </div>
-    );
-}
+export default class PostStatusFilter extends Component {
+    static propTypes = {
+        filter: PropTypes.string,
+        onFilterSelect: PropTypes.func
+    };
+    constructor(props) {
+        super(props);
 
-export default PostStatusFilter;
+        this.buttons = [
+            {name: "all", label: "Все"},
+            {name: "like", label: "Понравилось"},
+        ];
+    }
+    render() {
+        const buttons = this.buttons.map(({name, label}) => {
+            const active = this.props.filter === name;
+      
+            const classNames = `btn ${active  ? "btn-info" : "btn-outline-secondary"}`;
+            return (
+                <button key={name} type="button" className={classNames} onClick={() => this.props.onFilterSelect(name)}>{label}</button>  
+            );
+        });
+        return (
+            <div className="btn-group">
+                {buttons}
+            </div>
+        );
+    }
+    
+}

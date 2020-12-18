@@ -8,19 +8,26 @@ import "./post-list.css";
 class PostList extends React.Component {
     static propTypes = {
         posts: PropTypes.array,
+        onDelete: PropTypes.func,
+        onToggleImportant: PropTypes.func,
+        onToggleLike: PropTypes.func,
     };
     constructor(props) {
         super(props);
     }
     render() {
-        const {posts} = this.props;
+        const {posts, onDelete, onToggleLike, onToggleImportant} = this.props;
 
         const postsList = posts.map(elem => {
             const {id, ...elemProps} = elem;
             
             return (
                 <li className="list-group-item" key={id}>
-                    <PostListItem {...elemProps}/>
+                    <PostListItem {...elemProps}
+                        onDelete={() => onDelete(id)}
+                        onToggleImportant={() => onToggleImportant(id)}
+                        onToggleLike={() => onToggleLike(id)}
+                    />
                 </li>     
             );
         });
