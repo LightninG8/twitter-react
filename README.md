@@ -1,3 +1,6 @@
+To open the project go to [/build](https://lightning8.github.io/twitter-react/build/) folder
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
